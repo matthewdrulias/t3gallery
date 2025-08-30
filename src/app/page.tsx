@@ -1,9 +1,29 @@
 import Link from "next/link";
 
+const mockUrls = [
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8GrL74Qn1E1SzKJw6hOMTW3XB0lQoxLavYbC5F",
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8GASMKviYqo1LxGp9EZ8HMalUYyiIPSQegKCzR",
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8GjnKUyxradtNfQC2P3ZWEuchXBwlIH7KnSR96",
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8Gou9KDJBsre0TY91FCQtkuDgRnXBAj6hMifly",
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8GE2nniH0fw50od1Op3gtXcGLefuyxmaZjWD8l",
+    "https://31ysesymiw.ufs.sh/f/8EzjFOPtZh8GtgsnhE4ZmHYqE3o0UFjk8ldh2xJcnA6yuetR",
+];
+
+const mockImages = mockUrls.map((url, index) => ({
+    id: index +1,
+    url,
+}));
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-            Hello (gallery in progress...)
+    <main className="">
+            <div className="flex flex-wrap gap-4">
+                {[...mockImages, ...mockImages, ...mockImages].map((image) => (
+                    <div key={image.id} className="w-48">
+                        <img src={image.url} />
+                    </div>
+                ))}
+            </div>
     </main>
   );
 }
