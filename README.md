@@ -7,8 +7,9 @@
 - [*] Tidy up build process
 - [*] Actually set up a database (vercel postres)
 - [*] Attack database to UI
-- [ ] Add authentication (w/ clerk)
+- [*] Add authentication (w/ clerk)
 - [ ] Add image upload
+- [ ] "taint" (server-only)
 - [ ] Error management (w/ Sentry)
 - [ ] Routing/Image page (parallel route)
 - [ ] Delte button (w/ Server Actions)
