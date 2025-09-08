@@ -8,8 +8,8 @@
 - [x] Actually set up a database (vercel postres)
 - [x] Attack database to UI
 - [x] Add authentication (w/ clerk)
-- [ ] Add image upload
-- [ ] "taint" (server-only)
+- [x] Add image upload
+- [x] "taint" (server-only)
 - [ ] Use Next/Image component
 - [ ] Error management (w/ Sentry)
 - [ ] Routing/Image page (parallel route)
