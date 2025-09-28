@@ -25,7 +25,6 @@ export async function getImage(id: number) {
         where: (model, { eq }) => eq(model.id, id),
     });
 
-    //if (!image) throw new Error("Image not found");
     if (!image) redirect("/");
     if (image.userId !== (await user).userId) throw new Error("Unauthorized");
 

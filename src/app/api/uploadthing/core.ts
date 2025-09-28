@@ -3,6 +3,7 @@ import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { db } from "~/server/db";
 import { images } from "~/server/db/schema";
+import { clerkClient } from "@clerk/nextjs/server";
 
 
 const f = createUploadthing();
@@ -28,6 +29,12 @@ export const ourFileRouter = {
 
       // If you throw, the user will not be able to upload
       if (!user.userId) throw new UploadThingError("Unauthorized");
+
+      const fullUser = await clerkClient();
+      const fullUserData = await fullUser.users.getUser(user.userId);
+
+      if(fullUserData?.privateMetadata?.["can-upload"] !== true)
+            throw new UploadThingError("User does not have upload permissions...")
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
